@@ -1,16 +1,226 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>LiveLab 4 Demo</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nomadiq Travel Destinations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --green: #A8C1A1;
+      --deep-green: #2F5D50;
+      --blue: #5DA9E9;
+      --soft-white: #F6F4EB;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--soft-white);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--green);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: relative;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--deep-green);
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--deep-green);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--blue);
+      outline: none;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--deep-green);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background-color: var(--green);
+      color: var(--deep-green);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .about {
+      padding: 2rem;
+      background-color: white;
+      text-align: center;
+    }
+
+    .about h3 {
+      font-size: 1.5rem;
+      color: var(--deep-green);
+      margin-bottom: 1rem;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .cta a {
+      display: inline-block;
+      background-color: var(--deep-green);
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta a i {
+      margin-left: 0.5rem;
+    }
+
+    .cta a:hover,
+    .cta a:focus {
+      background-color: var(--blue);
+      outline: none;
+    }
+
+    @media (max-width: 599px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 2rem;
+        background: var(--green);
+        padding: 1rem;
+        border-radius: 5px;
+        z-index: 1000;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (min-width: 600px) {
+      header,
+      .hero,
+      .about,
+      .cta {
+        padding-left: 4rem;
+        padding-right: 4rem;
+      }
+
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 
 <body>
-  Hello world
-  <script src="script.js"></script>
+  <header>
+    <h1>🌍 Nomadiq Travel</h1>
+    <button class="menu-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+    <nav aria-label="Main navigation">
+      <a href="#">Home</a>
+      <a href="#">Destinations</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Explore Sustainable Travel</h2>
+    <p>Discover beautiful destinations while making eco-conscious choices. Travel light, leave a small footprint, and make unforgettable memories with Nomadiq Travel Destinations.</p>
+  </section>
+
+  <section class="about">
+    <h3>About Nomadiq Travel Destinations</h3>
+    <p>We’re passionate about connecting travelers with sustainable journeys. From eco-lodges to green transportation, our mission is to make travel better for people and the planet.</p>
+  </section>
+
+  <section class="cta">
+    <a href="#">Plan Your Trip <i class="fas fa-plane-departure"></i></a>
+  </section>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
 </body>
 
 </html>
